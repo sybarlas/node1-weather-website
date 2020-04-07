@@ -45,7 +45,7 @@ app.get('/help', (req, res) => {
         title: 'Help Page',
         name : 'Saqib Barlas',
         message : 'If you need help using this site, please contact',
-        helpEmail : 'help@sbarlas.com'
+        helpEmail : 'sb@sbarlas.com'
 
     });
 

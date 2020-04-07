@@ -81,8 +81,16 @@ const displayCurrentWeather = function(respBody)
 {
     const currentTemp = respBody.current.temperature;
     const currentDesc = respBody.current.weather_descriptions[0];
+    const currentTime = respBody.current.observation_time;
+    const currentWindSpeed = respBody.current.wind_speed;
+    const currentWindDir = respBody.current.wind_dir;
+    const currentHumidity = respBody.current.humidity;
 
-    return ('It is currently ' + currentTemp +  'C. The weather is ' + currentDesc +'.' );
+    var rtnString = 'At : ' + currentTime + ', it is currently ' + currentTemp +  '°C.'
+    rtnString += ' The weather is ' + currentDesc +'.'
+    rtnString += ' With a wind speed of ' + currentWindSpeed + 'km/h , blowing in a ' + currentWindDir + ' direction.';
+    rtnString += ' Current humidity is ' + currentHumidity + '%.'
+    return (rtnString );
 
 }
 

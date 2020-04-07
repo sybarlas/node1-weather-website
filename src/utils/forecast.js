@@ -81,17 +81,29 @@ const displayCurrentWeather = function(respBody)
 {
     const currentTemp = respBody.current.temperature;
     const currentDesc = respBody.current.weather_descriptions[0];
-    const currentTime = respBody.current.observation_time;
+    const currentTime = getLocalDateTIme();
     const currentWindSpeed = respBody.current.wind_speed;
     const currentWindDir = respBody.current.wind_dir;
     const currentHumidity = respBody.current.humidity;
 
-    var rtnString = 'At : ' + currentTime + ', it is currently ' + currentTemp +  '°C.'
-    rtnString += ' The weather is ' + currentDesc +'.'
-    rtnString += ' With a wind speed of ' + currentWindSpeed + 'km/h , blowing in a ' + currentWindDir + ' direction.';
+    var rtnString = 'Date : ' + currentTime + ': It is currently ' + currentTemp +  '°C.'
+    rtnString += ' The weather is ' + currentDesc +','
+    rtnString += ' with a wind speed of ' + currentWindSpeed + 'km/h , blowing in a ' + currentWindDir + ' direction.';
     rtnString += ' Current humidity is ' + currentHumidity + '%.'
     return (rtnString );
 
+}
+
+const getLocalDateTIme= () =>
+{
+    var options = {
+        timeZone: 'Europe/London',
+        year: 'numeric', month: 'numeric', day: 'numeric',
+        hour: 'numeric', minute: 'numeric', second: 'numeric',
+    },
+        formatter = new Intl.DateTimeFormat([], options);
+        
+        return formatter.format(new Date());
 }
 
 module.exports = 

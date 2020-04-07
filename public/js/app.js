@@ -19,7 +19,7 @@ weatherForm.addEventListener('submit', (e) =>
 
 function CallWeatherApi(locationValue)
 {
-    const searchUrl = 'http://localhost:3000/weather?address=' + locationValue;
+    const searchUrl = '/weather?address=' + locationValue;
 
     fetch(searchUrl).then((response) =>
     {
